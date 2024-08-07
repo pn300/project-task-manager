@@ -1,0 +1,22 @@
+{% extends "base.html" %} <!-- Extend the base template for consistent layout -->
+
+{% block title %}Register{% endblock %} <!-- Set the page title to 'Register' -->
+
+{% block content %}
+<div class="mt-4">
+    <h1>Register</h1>
+    <form method="POST" class="mb-4">
+        {{ form.hidden_tag() }} <!-- CSRF protection token -->
+        <div class="form-group">
+            {{ form.username.label(class="form-label") }} <!-- Label for username field -->
+            {{ form.username(class="form-control") }} <!-- Input field for username -->
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class="form-label") }} <!-- Label for password field -->
+            {{ form.password(class="form-control") }} <!-- Input field for password -->
+        </div>
+        {{ form.submit(class="btn btn-primary") }} <!-- Submit button for form -->
+    </form>
+    <a href="{{ url_for('login') }}">Login</a> <!-- Link to login page -->
+</div>
+{% endblock %}

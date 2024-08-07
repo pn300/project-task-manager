@@ -1,0 +1,22 @@
+{% extends "base.html" %}  <!-- Inherits the base template -->
+
+{% block title %}Login{% endblock %} <!-- Sets the title of the page -->
+
+{% block content %}
+<div class="mt-4">
+    <h1>Login</h1>
+    <form method="POST" class="mb-4">
+        {{ form.hidden_tag() }} <!-- CSRF token for form security -->
+        <div class="form-group">
+            {{ form.username.label(class="form-label") }} <!-- Username label -->
+            {{ form.username(class="form-control") }} <!-- Username input field -->
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class="form-label") }} <!-- Password label -->
+            {{ form.password(class="form-control") }} <!-- Password input field -->
+        </div>
+        {{ form.submit(class="btn btn-primary") }} <!-- Submit button -->
+    </form>
+    <a href="{{ url_for('register') }}">Register</a> <!-- Link to the registration page -->
+</div> 
+{% endblock %}

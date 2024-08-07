@@ -1,0 +1,22 @@
+{% extends "base.html" %} <!-- Extend the base template for consistent layout -->
+
+{% block title %}Update Task{% endblock %} <!-- Set the page title to 'Update Task' -->
+
+{% block content %}
+<div class="mt-4">
+    <h1>Update Task</h1>
+    <form method="POST" class="mb-4">
+        {{ form.hidden_tag() }} <!-- CSRF protection token -->
+        <div class="form-group">
+            {{ form.title.label(class="form-label") }} <!-- Label for task title -->
+            {{ form.title(class="form-control") }}  <!-- Input field for task title -->
+        </div>
+        <div class="form-group">
+            {{ form.description.label(class="form-label") }} <!-- Label for task description -->
+            {{ form.description(class="form-control", rows=4) }}  <!-- Text area for task description -->
+        </div>
+        {{ form.submit(class="btn btn-primary") }} <!-- Submit button to update task -->
+    </form>
+    <a href="{{ url_for('tasks') }}" class="btn btn-secondary">Back to Tasks</a> <!-- Link to navigate back to the tasks page -->
+</div>
+{% endblock %}

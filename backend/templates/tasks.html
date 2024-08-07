@@ -1,0 +1,34 @@
+{% extends "base.html" %}  <!-- Inherit layout from base template -->
+
+{% block title %}Tasks{% endblock %} <!-- Set the page title to 'Tasks' -->
+
+{% block content %}
+<div class="mt-4">
+    <h1>Tasks</h1>
+    <form method="POST" class="mb-4">
+        {{ form.hidden_tag() }}  <!-- CSRF protection token -->
+        <div class="form-group">
+            {{ form.title.label(class="form-label") }} <!-- Label for task title -->
+            {{ form.title(class="form-control") }} <!-- Input field for task title -->
+        </div>
+        <div class="form-group">
+            {{ form.description.label(class="form-label") }} <!-- Label for task description -->
+            {{ form.description(class="form-control", rows=4) }} <!-- Text area for task description -->
+        </div>
+        {{ form.submit(class="btn btn-primary") }}  <!-- Submit button for adding a new task -->
+    </form>
+    <h2>Your Tasks</h2>
+    <ul id="task-list" class="list-group">
+        {% for task_id, task in tasks.items() %}
+         <!-- Iterate over tasks and display each task in a list item -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><strong>{{ task.title }}</strong>: {{ task.description }}</span>
+                <span>
+                    <a href="{{ url_for('update_task', task_id=task_id) }}" class="btn btn-sm btn-secondary">Edit</a> <!-- Link to edit task -->
+                    <a href="{{ url_for('delete_task', task_id=task_id) }}" class="btn btn-sm btn-danger">Delete</a> <!-- Link to delete task -->
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
