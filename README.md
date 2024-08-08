@@ -9,7 +9,6 @@ A task manager application built with Flask, MongoDB, Flask-Login, and Socket.IO
 - [Architecture](#architecture)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Testing](#testing)
 - [Contributing](#contributing)
 
 ## Introduction
@@ -72,18 +71,6 @@ The application is structured as a monolithic Flask application with the followi
 3. **Create, update, and delete tasks:**
    - Navigate to the Tasks page to manage your tasks.
    - Real-time updates will be reflected immediately.
-  
-## Testing
-
-**Running Tests**
-- Ensure all dependencies are installed and MongoDB is running.
-- Run tests using `pytest`:
-  ```sh
-  pytest
-
-### Writing Tests
-- Tests are located in the `tests` directory.
-- Use `pytest` for writing and running test cases.
 
 ## Contributing
 
