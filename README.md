@@ -62,7 +62,7 @@ The application is structured as a monolithic Flask application with the followi
    - Create a database named `taskmanager`
 
 5. **Run the application:**
-    ``sh
+    ```sh
     python app.py
 
 ## Usage
